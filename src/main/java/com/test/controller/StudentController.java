@@ -29,20 +29,17 @@ public class StudentController {
 		return studentMap;
 	}
 	
-	@ResponseBody
 	@RequestMapping(value = "/add", method = RequestMethod.POST)  
-    public void add(@RequestParam(value="name") String name) {  
+	public void add(@RequestParam(value="name") String name) {  
 		iStudentService.addStudents(name);
-    }  
+	}  
 	
-	@ResponseBody
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)  
 	public void delete(@RequestParam(value="array[]") int[] array)
 	{
 		iStudentService.deleteStudents(array);
 	}
 	
-	@ResponseBody
 	@RequestMapping(value = "/update", method = RequestMethod.POST) 
 	public void update(@RequestParam(value="id")int id, @RequestParam(value="name")String name)
 	{
