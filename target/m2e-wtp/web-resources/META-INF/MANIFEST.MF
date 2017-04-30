@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: Spring Boot Web JSP Example
+Implementation-Version: 1.0
+Built-By: Administrator
+Implementation-Vendor-Id: org.springframework.boot
+Build-Jdk: 1.8.0_60
+Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-
+ Demo/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

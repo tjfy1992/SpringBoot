@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.test.Dao.StudentMapper"> 
+	<resultMap id="NewStudentResultMap" type="com.test.entity.Student">  
+        <id column="id" property="id" jdbcType="INTEGER" />  
+        <result column="name" property="name" jdbcType="VARCHAR" />  
+    </resultMap>   
+    
+    <select id="getStudents" resultMap="NewStudentResultMap">
+    	select id,name from student where id=#{parameter} or name like CONCAT('%',#{parameter},'%')  
+    </select>
+    
+    <insert id="addStudents">
+    	insert into student(name) values (#{name})
+    </insert>
+    
+    <update id="updateStudents">
+    	update student set name = #{1} where id = #{0}
+    </update>
+    
+    <delete id="deleteStudents" parameterType="Integer[]">
+    	delete from student 
+    	<where>
+    		id in
+    		<foreach collection="ids" item="id" index="index" open="(" close=")" separator=",">
+    			#{id}
+    		</foreach>
+    	</where>
+    </delete>
+    
+</mapper>
